@@ -41,14 +41,17 @@ SongWidget::SongWidget(QWidget *parent) :
     // Modify the column widths:
     ui->songs_view->setColumnWidth(0, 0);//Category
     ui->songs_view->setColumnWidth(1, 40);//Song Number
-    ui->songs_view->setColumnWidth(2, 150);//Song Title
-    ui->songs_view->setColumnWidth(3, 80);//Songbook
-    ui->songs_view->setColumnWidth(4, 50);//Tune
+    ui->songs_view->setColumnWidth(2, 380);//Song Title
+    ui->songs_view->setColumnWidth(3, 110);//Songbook
+    ui->songs_view->setColumnWidth(4, 40);//Tune
 
     proxy_model->setSongbookFilter("ALL");
     proxy_model->setCategoryFilter(-1);
     loadSongbooks();
     loadCategories(false);
+
+    // On load sort songs by number
+    ui->songs_view->sortByColumn(1,Qt::AscendingOrder);
 
     isSpinboxEditing = false;
 
